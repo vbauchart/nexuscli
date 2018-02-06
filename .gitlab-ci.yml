@@ -1,0 +1,9 @@
+image: nexus.sys.lab.ingenico.com:18001/ingenico/pythondev
+
+stages:
+    - test
+
+test:
+    stage: test
+    script:
+        - pip install -r requirements.txt
