@@ -1,0 +1,1580 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "3.7.0-04",
+    "title": "Nexus Repository Manager REST API"
+  },
+  "basePath": "/service/siesta/",
+  "tags": [
+    {
+      "name": "read-only"
+    },
+    {
+      "name": "tasks"
+    },
+    {
+      "name": "assets"
+    },
+    {
+      "name": "components"
+    },
+    {
+      "name": "search"
+    },
+    {
+      "name": "script"
+    }
+  ],
+  "paths": {
+    "/rest/beta/read-only/force-release": {
+      "post": {
+        "tags": [
+          "read-only"
+        ],
+        "summary": "Forcibly release read-only",
+        "description": "Forcibly release read-only status, including System initiated tasks. Warning: may result in data loss.",
+        "operationId": "forceRelease",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "System is no longer read-only"
+          },
+          "404": {
+            "description": "No change to read-only state state"
+          }
+        }
+      }
+    },
+    "/rest/beta/read-only/freeze": {
+      "post": {
+        "tags": [
+          "read-only"
+        ],
+        "summary": "Enable read-only",
+        "description": "",
+        "operationId": "freeze",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "System is now read-only"
+          },
+          "404": {
+            "description": "Task not found"
+          }
+        }
+      }
+    },
+    "/rest/beta/read-only/release": {
+      "post": {
+        "tags": [
+          "read-only"
+        ],
+        "summary": "Release read-only",
+        "description": "Release administrator initiated read-only status. Will not release read-only caused by system tasks.",
+        "operationId": "release",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "System is no longer read-only"
+          },
+          "404": {
+            "description": "No change to read-only state state"
+          }
+        }
+      }
+    },
+    "/rest/beta/read-only": {
+      "get": {
+        "tags": [
+          "read-only"
+        ],
+        "summary": "Get read-only state",
+        "description": "",
+        "operationId": "get",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ReadOnlyState"
+            }
+          }
+        }
+      }
+    },
+    "/rest/beta/tasks/{id}": {
+      "get": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Get a single task by id",
+        "description": "",
+        "operationId": "getTaskById",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the task to get",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/TaskXO"
+            }
+          },
+          "404": {
+            "description": "Task not found"
+          }
+        }
+      }
+    },
+    "/rest/beta/tasks": {
+      "get": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "List tasks",
+        "description": "",
+        "operationId": "getTasks",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PageTaskXO"
+            }
+          }
+        }
+      }
+    },
+    "/rest/beta/tasks/{id}/run": {
+      "post": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Run task",
+        "description": "",
+        "operationId": "run",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the task to run",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Task was run"
+          },
+          "404": {
+            "description": "Task not found"
+          }
+        }
+      }
+    },
+    "/rest/beta/tasks/{id}/stop": {
+      "post": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Stop task",
+        "description": "",
+        "operationId": "stop",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the task to stop",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Task was stopped"
+          },
+          "404": {
+            "description": "Task not found"
+          },
+          "409": {
+            "description": "Unable to stop task"
+          }
+        }
+      }
+    },
+    "/rest/beta/assets": {
+      "get": {
+        "tags": [
+          "assets"
+        ],
+        "summary": "List assets",
+        "description": "",
+        "operationId": "getAssets",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "A token returned by a prior request. If present, the next page of results are returned",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "repositoryId",
+            "in": "query",
+            "description": "ID of the repository from which you would like to retrieve assets.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PageAssetXO"
+            }
+          },
+          "422": {
+            "description": "repositoryId is required"
+          }
+        }
+      }
+    },
+    "/rest/beta/assets/{id}": {
+      "get": {
+        "tags": [
+          "assets"
+        ],
+        "summary": "Get a single asset",
+        "description": "",
+        "operationId": "getAssetById",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the asset to get",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/AssetXO"
+            }
+          },
+          "404": {
+            "description": "Asset not found"
+          },
+          "422": {
+            "description": "Malformed ID"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "assets"
+        ],
+        "summary": "Delete a single asset",
+        "description": "",
+        "operationId": "deleteAsset",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the asset to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Insufficient permissions to delete asset"
+          },
+          "404": {
+            "description": "Asset not found"
+          },
+          "422": {
+            "description": "Malformed ID"
+          }
+        }
+      }
+    },
+    "/rest/beta/components/{id}": {
+      "get": {
+        "tags": [
+          "components"
+        ],
+        "summary": "Get a single component",
+        "description": "",
+        "operationId": "getComponentById",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the component to retrieve",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ComponentXO"
+            }
+          },
+          "404": {
+            "description": "Component not found"
+          },
+          "422": {
+            "description": "Malformed ID"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "components"
+        ],
+        "summary": "Delete a single component",
+        "description": "",
+        "operationId": "deleteComponent",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the component to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Insufficient permissions to delete component"
+          },
+          "404": {
+            "description": "Component not found"
+          },
+          "422": {
+            "description": "Malformed ID"
+          }
+        }
+      }
+    },
+    "/rest/beta/components": {
+      "get": {
+        "tags": [
+          "components"
+        ],
+        "summary": "List components",
+        "description": "",
+        "operationId": "getComponents",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "A token returned by a prior request. If present, the next page of results are returned",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "repositoryId",
+            "in": "query",
+            "description": "ID of the repository from which you would like to retrieve components",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PageComponentXO"
+            }
+          },
+          "422": {
+            "description": "repositoryId is required"
+          }
+        }
+      }
+    },
+    "/rest/beta/search/assets": {
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Search assets",
+        "description": "",
+        "operationId": "searchAssets",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "A token returned by a prior request. If present, the next page of results are returned",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Query by keyword",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "repository",
+            "in": "query",
+            "description": "Repository name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Query by format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "description": "Component group",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Component name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Component version",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "md5",
+            "in": "query",
+            "description": "Specific MD5 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sha1",
+            "in": "query",
+            "description": "Specific SHA-1 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sha256",
+            "in": "query",
+            "description": "Specific SHA-256 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sha512",
+            "in": "query",
+            "description": "Specific SHA-512 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.imageName",
+            "in": "query",
+            "description": "Docker image name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.imageTag",
+            "in": "query",
+            "description": "Docker image tag",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.layerId",
+            "in": "query",
+            "description": "Docker layer ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.contentDigest",
+            "in": "query",
+            "description": "Docker content digest",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.groupId",
+            "in": "query",
+            "description": "Maven groupId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.artifactId",
+            "in": "query",
+            "description": "Maven artifactId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.baseVersion",
+            "in": "query",
+            "description": "Maven base version",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.extension",
+            "in": "query",
+            "description": "Maven extension of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.classifier",
+            "in": "query",
+            "description": "Maven classifier of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "npm.scope",
+            "in": "query",
+            "description": "NPM scope",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nuget.id",
+            "in": "query",
+            "description": "Nuget id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nuget.tags",
+            "in": "query",
+            "description": "Nuget tags",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.classifiers",
+            "in": "query",
+            "description": "PyPi classifiers",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.description",
+            "in": "query",
+            "description": "PyPi description",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.keywords",
+            "in": "query",
+            "description": "PyPi keywords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.summary",
+            "in": "query",
+            "description": "PyPi summary",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rubygems.description",
+            "in": "query",
+            "description": "RubyGems description",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rubygems.platform",
+            "in": "query",
+            "description": "RubyGems platform",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rubygems.summary",
+            "in": "query",
+            "description": "RubyGems summary",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PageAssetXO"
+            }
+          }
+        }
+      }
+    },
+    "/rest/beta/search/assets/download": {
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Search and download asset",
+        "description": "Returns a 302 Found with location header field set to download URL. Search must return a single asset to receive download URL.",
+        "operationId": "searchAndDownloadAssets",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Query by keyword",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "repository",
+            "in": "query",
+            "description": "Repository name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Query by format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "description": "Component group",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Component name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Component version",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "md5",
+            "in": "query",
+            "description": "Specific MD5 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sha1",
+            "in": "query",
+            "description": "Specific SHA-1 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sha256",
+            "in": "query",
+            "description": "Specific SHA-256 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sha512",
+            "in": "query",
+            "description": "Specific SHA-512 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.imageName",
+            "in": "query",
+            "description": "Docker image name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.imageTag",
+            "in": "query",
+            "description": "Docker image tag",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.layerId",
+            "in": "query",
+            "description": "Docker layer ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.contentDigest",
+            "in": "query",
+            "description": "Docker content digest",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.groupId",
+            "in": "query",
+            "description": "Maven groupId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.artifactId",
+            "in": "query",
+            "description": "Maven artifactId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.baseVersion",
+            "in": "query",
+            "description": "Maven base version",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.extension",
+            "in": "query",
+            "description": "Maven extension of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.classifier",
+            "in": "query",
+            "description": "Maven classifier of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "npm.scope",
+            "in": "query",
+            "description": "NPM scope",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nuget.id",
+            "in": "query",
+            "description": "Nuget id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nuget.tags",
+            "in": "query",
+            "description": "Nuget tags",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.classifiers",
+            "in": "query",
+            "description": "PyPi classifiers",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.description",
+            "in": "query",
+            "description": "PyPi description",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.keywords",
+            "in": "query",
+            "description": "PyPi keywords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.summary",
+            "in": "query",
+            "description": "PyPi summary",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rubygems.description",
+            "in": "query",
+            "description": "RubyGems description",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rubygems.platform",
+            "in": "query",
+            "description": "RubyGems platform",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rubygems.summary",
+            "in": "query",
+            "description": "RubyGems summary",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Search returned multiple assets, please refine search criteria to find a single asset"
+          },
+          "404": {
+            "description": "Asset search returned no results"
+          }
+        }
+      }
+    },
+    "/rest/beta/search": {
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "summary": "Search components",
+        "description": "",
+        "operationId": "search",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "A token returned by a prior request. If present, the next page of results are returned",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Query by keyword",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "repository",
+            "in": "query",
+            "description": "Repository name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Query by format",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "group",
+            "in": "query",
+            "description": "Component group",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Component name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Component version",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "md5",
+            "in": "query",
+            "description": "Specific MD5 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sha1",
+            "in": "query",
+            "description": "Specific SHA-1 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sha256",
+            "in": "query",
+            "description": "Specific SHA-256 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sha512",
+            "in": "query",
+            "description": "Specific SHA-512 hash of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.imageName",
+            "in": "query",
+            "description": "Docker image name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.imageTag",
+            "in": "query",
+            "description": "Docker image tag",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.layerId",
+            "in": "query",
+            "description": "Docker layer ID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "docker.contentDigest",
+            "in": "query",
+            "description": "Docker content digest",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.groupId",
+            "in": "query",
+            "description": "Maven groupId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.artifactId",
+            "in": "query",
+            "description": "Maven artifactId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.baseVersion",
+            "in": "query",
+            "description": "Maven base version",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.extension",
+            "in": "query",
+            "description": "Maven extension of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maven.classifier",
+            "in": "query",
+            "description": "Maven classifier of component's asset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "npm.scope",
+            "in": "query",
+            "description": "NPM scope",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nuget.id",
+            "in": "query",
+            "description": "Nuget id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nuget.tags",
+            "in": "query",
+            "description": "Nuget tags",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.classifiers",
+            "in": "query",
+            "description": "PyPi classifiers",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.description",
+            "in": "query",
+            "description": "PyPi description",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.keywords",
+            "in": "query",
+            "description": "PyPi keywords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pypi.summary",
+            "in": "query",
+            "description": "PyPi summary",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rubygems.description",
+            "in": "query",
+            "description": "RubyGems description",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rubygems.platform",
+            "in": "query",
+            "description": "RubyGems platform",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rubygems.summary",
+            "in": "query",
+            "description": "RubyGems summary",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PageComponentXO"
+            }
+          }
+        }
+      }
+    },
+    "/rest/v1/script/{name}": {
+      "get": {
+        "tags": [
+          "script"
+        ],
+        "summary": "Read stored script by name",
+        "description": "",
+        "operationId": "read",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ScriptXO"
+            }
+          },
+          "404": {
+            "description": "No script with the specified name"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "script"
+        ],
+        "summary": "Update stored script by name",
+        "description": "",
+        "operationId": "edit",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/ScriptXO"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Script was updated"
+          },
+          "404": {
+            "description": "No script with the specified name"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "script"
+        ],
+        "summary": "Delete stored script by name",
+        "description": "",
+        "operationId": "delete",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Script was deleted"
+          },
+          "404": {
+            "description": "No script with the specified name"
+          }
+        }
+      }
+    },
+    "/rest/v1/script": {
+      "get": {
+        "tags": [
+          "script"
+        ],
+        "summary": "List all stored scripts",
+        "description": "",
+        "operationId": "browse",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScriptXO"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "script"
+        ],
+        "summary": "Add a new script",
+        "description": "",
+        "operationId": "add",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/ScriptXO"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Script was added"
+          }
+        }
+      }
+    },
+    "/rest/v1/script/{name}/run": {
+      "post": {
+        "tags": [
+          "script"
+        ],
+        "summary": "Run stored script by name",
+        "description": "",
+        "operationId": "run_1",
+        "consumes": [
+          "text/plain"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ScriptResultXO"
+            }
+          },
+          "404": {
+            "description": "No script with the specified name"
+          },
+          "500": {
+            "description": "Script execution failed with exception"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ReadOnlyState": {
+      "type": "object",
+      "properties": {
+        "summaryReason": {
+          "type": "string"
+        },
+        "systemInitiated": {
+          "type": "boolean"
+        },
+        "frozen": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TaskXO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "currentState": {
+          "type": "string"
+        },
+        "lastRunResult": {
+          "type": "string"
+        },
+        "nextRun": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastRun": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "Page": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "continuationToken": {
+          "type": "string"
+        }
+      }
+    },
+    "PageTaskXO": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaskXO"
+          }
+        },
+        "continuationToken": {
+          "type": "string"
+        }
+      }
+    },
+    "AssetXO": {
+      "type": "object",
+      "properties": {
+        "downloadUrl": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "checksum": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "PageAssetXO": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AssetXO"
+          }
+        },
+        "continuationToken": {
+          "type": "string"
+        }
+      }
+    },
+    "ComponentXO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AssetXO"
+          }
+        }
+      }
+    },
+    "PageComponentXO": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ComponentXO"
+          }
+        },
+        "continuationToken": {
+          "type": "string"
+        }
+      }
+    },
+    "ScriptXO": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9\\-]{1}[a-zA-Z0-9_\\-\\.]*$"
+        },
+        "content": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "ScriptResultXO": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
