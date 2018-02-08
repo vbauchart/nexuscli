@@ -129,7 +129,7 @@ class TasksApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/tasks/{id}', 'GET',
                                         path_params,
@@ -227,7 +227,7 @@ class TasksApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/tasks', 'GET',
                                         path_params,
@@ -333,7 +333,7 @@ class TasksApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/tasks/{id}/run', 'POST',
                                         path_params,
@@ -439,7 +439,7 @@ class TasksApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/tasks/{id}/stop', 'POST',
                                         path_params,

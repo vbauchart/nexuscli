@@ -126,7 +126,7 @@ class ScriptApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/v1/script', 'POST',
                                         path_params,
@@ -224,7 +224,7 @@ class ScriptApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/v1/script', 'GET',
                                         path_params,
@@ -330,7 +330,7 @@ class ScriptApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/v1/script/{name}', 'DELETE',
                                         path_params,
@@ -440,7 +440,7 @@ class ScriptApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/v1/script/{name}', 'PUT',
                                         path_params,
@@ -546,7 +546,7 @@ class ScriptApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/v1/script/{name}', 'GET',
                                         path_params,
@@ -656,7 +656,7 @@ class ScriptApi(object):
             select_header_content_type(['text/plain'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/v1/script/{name}/run', 'POST',
                                         path_params,

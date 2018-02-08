@@ -242,7 +242,7 @@ class SearchApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/search', 'GET',
                                         path_params,
@@ -457,7 +457,7 @@ class SearchApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/search/assets/download', 'GET',
                                         path_params,
@@ -676,7 +676,7 @@ class SearchApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/search/assets', 'GET',
                                         path_params,

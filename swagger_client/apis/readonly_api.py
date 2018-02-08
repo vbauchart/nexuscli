@@ -121,7 +121,7 @@ class ReadonlyApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/read-only/force-release', 'POST',
                                         path_params,
@@ -219,7 +219,7 @@ class ReadonlyApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/read-only/freeze', 'POST',
                                         path_params,
@@ -317,7 +317,7 @@ class ReadonlyApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/read-only', 'GET',
                                         path_params,
@@ -415,7 +415,7 @@ class ReadonlyApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/read-only/release', 'POST',
                                         path_params,

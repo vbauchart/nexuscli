@@ -50,6 +50,10 @@ import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
+# Configure HTTP basic authorization: basicAuth
+swagger_client.configuration.username = 'YOUR_USERNAME'
+swagger_client.configuration.password = 'YOUR_PASSWORD'
 # create an instance of the API class
 api_instance = swagger_client.AssetsApi()
 id = 'id_example' # str | Id of the asset to delete
@@ -109,7 +113,10 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+
+## basicAuth
+
+- **Type**: HTTP basic authentication
 
 
 ## Author

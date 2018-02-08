@@ -25,6 +25,10 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
+# Configure HTTP basic authorization: basicAuth
+swagger_client.configuration.username = 'YOUR_USERNAME'
+swagger_client.configuration.password = 'YOUR_PASSWORD'
+
 # create an instance of the API class
 api_instance = swagger_client.ReadonlyApi()
 
@@ -44,7 +48,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -68,6 +72,10 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
+# Configure HTTP basic authorization: basicAuth
+swagger_client.configuration.username = 'YOUR_USERNAME'
+swagger_client.configuration.password = 'YOUR_PASSWORD'
+
 # create an instance of the API class
 api_instance = swagger_client.ReadonlyApi()
 
@@ -87,7 +95,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -111,6 +119,10 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
+# Configure HTTP basic authorization: basicAuth
+swagger_client.configuration.username = 'YOUR_USERNAME'
+swagger_client.configuration.password = 'YOUR_PASSWORD'
+
 # create an instance of the API class
 api_instance = swagger_client.ReadonlyApi()
 
@@ -131,7 +143,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -155,6 +167,10 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
+# Configure HTTP basic authorization: basicAuth
+swagger_client.configuration.username = 'YOUR_USERNAME'
+swagger_client.configuration.password = 'YOUR_PASSWORD'
+
 # create an instance of the API class
 api_instance = swagger_client.ReadonlyApi()
 
@@ -174,7 +190,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

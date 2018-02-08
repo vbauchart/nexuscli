@@ -45,7 +45,7 @@ class Configuration(object):
         Constructor
         """
         # Default Base url
-        self.host = "https://nexus.sys.lab.ingenico.com/service/siesta"
+        self.host = "https://localhost/service/siesta/"
         # Default api client
         self.api_client = None
         # Temp file folder for downloading files
@@ -72,13 +72,13 @@ class Configuration(object):
         # Log file handler
         self.logger_file_handler = None
         # Debug file location
-        self.logger_file = 'nexus-cli.log'
+        self.logger_file = None
         # Debug switch
         self.debug = False
 
         # SSL/TLS verification
         # Set this to false to skip verifying SSL certificate when calling API from https server.
-        self.verify_ssl = False
+        self.verify_ssl = True
         # Set this to customize the certificate file to verify the peer.
         self.ssl_ca_cert = None
         # client certificate file
@@ -207,6 +207,13 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         return {
+            'basicAuth':
+                {
+                    'type': 'basic',
+                    'in': 'header',
+                    'key': 'Authorization',
+                    'value': self.get_basic_auth_token()
+                },
 
         }
 

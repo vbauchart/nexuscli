@@ -129,7 +129,7 @@ class ComponentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/components/{id}', 'DELETE',
                                         path_params,
@@ -235,7 +235,7 @@ class ComponentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/components/{id}', 'GET',
                                         path_params,
@@ -345,7 +345,7 @@ class ComponentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/components', 'GET',
                                         path_params,

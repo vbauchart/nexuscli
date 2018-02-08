@@ -129,7 +129,7 @@ class AssetsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/assets/{id}', 'DELETE',
                                         path_params,
@@ -235,7 +235,7 @@ class AssetsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/assets/{id}', 'GET',
                                         path_params,
@@ -345,7 +345,7 @@ class AssetsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['basicAuth']
 
         return self.api_client.call_api('/rest/beta/assets', 'GET',
                                         path_params,
