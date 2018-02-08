@@ -45,7 +45,7 @@ class Configuration(object):
         Constructor
         """
         # Default Base url
-        self.host = "https://localhost/service/siesta/"
+        self.host = "https://nexus.sys.lab.ingenico.com/service/siesta"
         # Default api client
         self.api_client = None
         # Temp file folder for downloading files
@@ -72,13 +72,13 @@ class Configuration(object):
         # Log file handler
         self.logger_file_handler = None
         # Debug file location
-        self.logger_file = None
+        self.logger_file = 'nexus-cli.log'
         # Debug switch
         self.debug = False
 
         # SSL/TLS verification
         # Set this to false to skip verifying SSL certificate when calling API from https server.
-        self.verify_ssl = True
+        self.verify_ssl = False
         # Set this to customize the certificate file to verify the peer.
         self.ssl_ca_cert = None
         # client certificate file
