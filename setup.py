@@ -14,7 +14,7 @@
 import sys
 from setuptools import setup, find_packages
 
-NAME = "nexus-client"
+NAME = "nexuscli"
 VERSION = "1.0.0"
 # To install the library, run the following
 #
@@ -33,6 +33,11 @@ setup(
     url="",
     keywords=["Swagger", "Nexus Repository Manager REST API"],
     install_requires=REQUIRES,
+    entry_points={
+        'console_scripts': [
+            'nexus-cli-docker = nexuscli.cli.docker:main'
+            ],
+        },
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
