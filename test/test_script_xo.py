@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.script_xo import ScriptXO
+import nexuscli
+from nexuscli.rest import ApiException
+from nexuscli.models.script_xo import ScriptXO
 
 
 class TestScriptXO(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestScriptXO(unittest.TestCase):
         Test ScriptXO
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = swagger_client.models.script_xo.ScriptXO()
+        #model = nexuscli.models.script_xo.ScriptXO()
         pass
 
 

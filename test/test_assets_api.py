@@ -17,16 +17,16 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.apis.assets_api import AssetsApi
+import nexuscli
+from nexuscli.rest import ApiException
+from nexuscli.apis.assets_api import AssetsApi
 
 
 class TestAssetsApi(unittest.TestCase):
     """ AssetsApi unit test stubs """
 
     def setUp(self):
-        self.api = swagger_client.apis.assets_api.AssetsApi()
+        self.api = nexuscli.apis.assets_api.AssetsApi()
 
     def tearDown(self):
         pass

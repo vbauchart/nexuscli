@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.task_xo import TaskXO
+import nexuscli
+from nexuscli.rest import ApiException
+from nexuscli.models.task_xo import TaskXO
 
 
 class TestTaskXO(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestTaskXO(unittest.TestCase):
         Test TaskXO
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = swagger_client.models.task_xo.TaskXO()
+        #model = nexuscli.models.task_xo.TaskXO()
         pass
 
 

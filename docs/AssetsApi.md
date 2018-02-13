@@ -1,4 +1,4 @@
-# swagger_client.AssetsApi
+# nexuscli.AssetsApi
 
 All URIs are relative to *https://localhost/service/siesta/*
 
@@ -20,16 +20,16 @@ Delete a single asset
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.AssetsApi()
+api_instance = nexuscli.AssetsApi()
 id = 'id_example' # str | Id of the asset to delete
 
 try: 
@@ -71,16 +71,16 @@ Get a single asset
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.AssetsApi()
+api_instance = nexuscli.AssetsApi()
 id = 'id_example' # str | Id of the asset to get
 
 try: 
@@ -123,16 +123,16 @@ List assets
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.AssetsApi()
+api_instance = nexuscli.AssetsApi()
 repository_id = 'repository_id_example' # str | ID of the repository from which you would like to retrieve assets.
 continuation_token = 'continuation_token_example' # str | A token returned by a prior request. If present, the next page of results are returned (optional)
 

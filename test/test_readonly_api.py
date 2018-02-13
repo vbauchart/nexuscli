@@ -17,16 +17,16 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.apis.readonly_api import ReadonlyApi
+import nexuscli
+from nexuscli.rest import ApiException
+from nexuscli.apis.readonly_api import ReadonlyApi
 
 
 class TestReadonlyApi(unittest.TestCase):
     """ ReadonlyApi unit test stubs """
 
     def setUp(self):
-        self.api = swagger_client.apis.readonly_api.ReadonlyApi()
+        self.api = nexuscli.apis.readonly_api.ReadonlyApi()
 
     def tearDown(self):
         pass

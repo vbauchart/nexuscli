@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.component_xo import ComponentXO
+import nexuscli
+from nexuscli.rest import ApiException
+from nexuscli.models.component_xo import ComponentXO
 
 
 class TestComponentXO(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestComponentXO(unittest.TestCase):
         Test ComponentXO
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = swagger_client.models.component_xo.ComponentXO()
+        #model = nexuscli.models.component_xo.ComponentXO()
         pass
 
 

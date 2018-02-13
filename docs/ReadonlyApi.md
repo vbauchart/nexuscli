@@ -1,4 +1,4 @@
-# swagger_client.ReadonlyApi
+# nexuscli.ReadonlyApi
 
 All URIs are relative to *https://localhost/service/siesta/*
 
@@ -21,16 +21,16 @@ Forcibly release read-only status, including System initiated tasks. Warning: ma
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ReadonlyApi()
+api_instance = nexuscli.ReadonlyApi()
 
 try: 
     # Forcibly release read-only
@@ -68,16 +68,16 @@ Enable read-only
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ReadonlyApi()
+api_instance = nexuscli.ReadonlyApi()
 
 try: 
     # Enable read-only
@@ -115,16 +115,16 @@ Get read-only state
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ReadonlyApi()
+api_instance = nexuscli.ReadonlyApi()
 
 try: 
     # Get read-only state
@@ -163,16 +163,16 @@ Release administrator initiated read-only status. Will not release read-only cau
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ReadonlyApi()
+api_instance = nexuscli.ReadonlyApi()
 
 try: 
     # Release read-only

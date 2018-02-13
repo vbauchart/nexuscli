@@ -1,4 +1,4 @@
-# swagger_client.SearchApi
+# nexuscli.SearchApi
 
 All URIs are relative to *https://localhost/service/siesta/*
 
@@ -20,16 +20,16 @@ Search components
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.SearchApi()
+api_instance = nexuscli.SearchApi()
 continuation_token = 'continuation_token_example' # str | A token returned by a prior request. If present, the next page of results are returned (optional)
 q = 'q_example' # str | Query by keyword (optional)
 repository = 'repository_example' # str | Repository name (optional)
@@ -130,16 +130,16 @@ Returns a 302 Found with location header field set to download URL. Search must 
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.SearchApi()
+api_instance = nexuscli.SearchApi()
 q = 'q_example' # str | Query by keyword (optional)
 repository = 'repository_example' # str | Repository name (optional)
 format = 'format_example' # str | Query by format (optional)
@@ -237,16 +237,16 @@ Search assets
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.SearchApi()
+api_instance = nexuscli.SearchApi()
 continuation_token = 'continuation_token_example' # str | A token returned by a prior request. If present, the next page of results are returned (optional)
 q = 'q_example' # str | Query by keyword (optional)
 repository = 'repository_example' # str | Repository name (optional)

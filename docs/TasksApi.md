@@ -1,4 +1,4 @@
-# swagger_client.TasksApi
+# nexuscli.TasksApi
 
 All URIs are relative to *https://localhost/service/siesta/*
 
@@ -21,16 +21,16 @@ Get a single task by id
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.TasksApi()
+api_instance = nexuscli.TasksApi()
 id = 'id_example' # str | Id of the task to get
 
 try: 
@@ -73,16 +73,16 @@ List tasks
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.TasksApi()
+api_instance = nexuscli.TasksApi()
 
 try: 
     # List tasks
@@ -121,16 +121,16 @@ Run task
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.TasksApi()
+api_instance = nexuscli.TasksApi()
 id = 'id_example' # str | Id of the task to run
 
 try: 
@@ -172,16 +172,16 @@ Stop task
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.TasksApi()
+api_instance = nexuscli.TasksApi()
 id = 'id_example' # str | Id of the task to stop
 
 try: 

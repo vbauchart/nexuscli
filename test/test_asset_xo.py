@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.asset_xo import AssetXO
+import nexuscli
+from nexuscli.rest import ApiException
+from nexuscli.models.asset_xo import AssetXO
 
 
 class TestAssetXO(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestAssetXO(unittest.TestCase):
         Test AssetXO
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = swagger_client.models.asset_xo.AssetXO()
+        #model = nexuscli.models.asset_xo.AssetXO()
         pass
 
 

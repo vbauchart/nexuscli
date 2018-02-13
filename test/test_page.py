@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.page import Page
+import nexuscli
+from nexuscli.rest import ApiException
+from nexuscli.models.page import Page
 
 
 class TestPage(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestPage(unittest.TestCase):
         Test Page
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = swagger_client.models.page.Page()
+        #model = nexuscli.models.page.Page()
         pass
 
 

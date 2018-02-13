@@ -17,16 +17,16 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.apis.script_api import ScriptApi
+import nexuscli
+from nexuscli.rest import ApiException
+from nexuscli.apis.script_api import ScriptApi
 
 
 class TestScriptApi(unittest.TestCase):
     """ ScriptApi unit test stubs """
 
     def setUp(self):
-        self.api = swagger_client.apis.script_api.ScriptApi()
+        self.api = nexuscli.apis.script_api.ScriptApi()
 
     def tearDown(self):
         pass

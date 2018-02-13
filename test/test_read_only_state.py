@@ -17,9 +17,9 @@ import os
 import sys
 import unittest
 
-import swagger_client
-from swagger_client.rest import ApiException
-from swagger_client.models.read_only_state import ReadOnlyState
+import nexuscli
+from nexuscli.rest import ApiException
+from nexuscli.models.read_only_state import ReadOnlyState
 
 
 class TestReadOnlyState(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestReadOnlyState(unittest.TestCase):
         Test ReadOnlyState
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = swagger_client.models.read_only_state.ReadOnlyState()
+        #model = nexuscli.models.read_only_state.ReadOnlyState()
         pass
 
 

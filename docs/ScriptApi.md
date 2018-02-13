@@ -1,4 +1,4 @@
-# swagger_client.ScriptApi
+# nexuscli.ScriptApi
 
 All URIs are relative to *https://localhost/service/siesta/*
 
@@ -23,17 +23,17 @@ Add a new script
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ScriptApi()
-body = swagger_client.ScriptXO() # ScriptXO |  (optional)
+api_instance = nexuscli.ScriptApi()
+body = nexuscli.ScriptXO() # ScriptXO |  (optional)
 
 try: 
     # Add a new script
@@ -74,16 +74,16 @@ List all stored scripts
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ScriptApi()
+api_instance = nexuscli.ScriptApi()
 
 try: 
     # List all stored scripts
@@ -122,16 +122,16 @@ Delete stored script by name
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ScriptApi()
+api_instance = nexuscli.ScriptApi()
 name = 'name_example' # str | 
 
 try: 
@@ -173,18 +173,18 @@ Update stored script by name
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ScriptApi()
+api_instance = nexuscli.ScriptApi()
 name = 'name_example' # str | 
-body = swagger_client.ScriptXO() # ScriptXO |  (optional)
+body = nexuscli.ScriptXO() # ScriptXO |  (optional)
 
 try: 
     # Update stored script by name
@@ -226,16 +226,16 @@ Read stored script by name
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ScriptApi()
+api_instance = nexuscli.ScriptApi()
 name = 'name_example' # str | 
 
 try: 
@@ -278,16 +278,16 @@ Run stored script by name
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import nexuscli
+from nexuscli.rest import ApiException
 from pprint import pprint
 
 # Configure HTTP basic authorization: basicAuth
-swagger_client.configuration.username = 'YOUR_USERNAME'
-swagger_client.configuration.password = 'YOUR_PASSWORD'
+nexuscli.configuration.username = 'YOUR_USERNAME'
+nexuscli.configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
-api_instance = swagger_client.ScriptApi()
+api_instance = nexuscli.ScriptApi()
 name = 'name_example' # str | 
 body = 'body_example' # str |  (optional)
 
