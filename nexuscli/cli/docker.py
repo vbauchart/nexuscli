@@ -17,16 +17,17 @@ def main(args=None):
     parser.add_argument("-r", "--repo", help="Repository ID", action="store")
     parser.add_argument("-c", "--component", help="Component name", action="store")
     parser.add_argument("-l", "--list-assets", help="list assets", action="store_true")
+    parser.add_argument("-k", "--insecure", help="Allow connect on untrusted CA", action="store_true")
     parser.add_argument("-d", "--delete-pattern",
                 help="Delete assets with TAG matching pattern (regex)", action="store")
     parser.add_argument("-n", "--dry-run", help="Do nothing, just print",
             action="store_true")
     args = parser.parse_args()
 
-    nexuscli.configuration.verify_ssl = False
-    nexuscli.configuration.host = "https://nexus.sys.lab.ingenico.com/service/siesta"
-    nexuscli.configuration.username = os.environ['REGISTRY_URL']
-    nexuscli.configuration.password = os.environ['REGISTRY_PASSSWORD']
+    nexuscli.configuration.verify_ssl = args.insecure
+    nexuscli.configuration.host = os.environ['REGISTRY_URL']
+    nexuscli.configuration.username = os.environ['REGISTRY_USERNAME']
+    nexuscli.configuration.password = os.environ['REGISTRY_PASSWORD']
 
     print_list = args.list_assets
     dry_run = args.dry_run
