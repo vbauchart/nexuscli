@@ -35,7 +35,7 @@ setup(
     install_requires=REQUIRES,
     entry_points={
         'console_scripts': [
-            'nexus-cli-docker = nexuscli.cli.docker:main'
+            'nexus-cli = nexuscli.cli.docker:main'
             ],
         },
     packages=find_packages(),

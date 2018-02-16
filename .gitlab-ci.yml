@@ -1,11 +1,23 @@
-image: nexus.sys.lab.ingenico.com:18001/ingenico/pythondev
 
 stages:
     - test
+    - build
+    - deploy
 
 test:
+    image: nexus.sys.lab.ingenico.com:18001/ingenico/pythondev
     stage: test
     script:
         - tox
     tags:
         - docker
+
+build:
+    stage: build
+    script:
+        - docker build -t nexus.sys.lab.ingenico.com:18449/nexus-cli .
+        - docker push nexus.sys.lab.ingenico.com:18449/nexus-cli
+    tags:
+        - dockerimage
+    onlyif:
+        - master
