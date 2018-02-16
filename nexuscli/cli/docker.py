@@ -23,8 +23,8 @@ def main(args=None):
     parser.add_argument("-r", "--repo", help="Repository ID", action="store")
     parser.add_argument("-b", "--bin-format", help="binary format (docker,maven2,raw,pypi,...)", action="store")
     parser.add_argument("-c", "--component", help="Component name", action="store")
-    parser.add_argument("-p", "--path", help="Path of component", action="store")
     parser.add_argument("-f", "--filter", help="REGEX filter on 'name:tag'", action="store")
+    parser.add_argument("-e", "--filter-exclude", help="REGEX filter on 'name:tag'", action="store")
     parser.add_argument("-k", "--insecure", help="Allow connect on untrusted CA", action="store_true")
     parser.add_argument("-v", "--verbose", help="Be verbose", action="store_true")
     parser.add_argument("-y", "--yes", help="Assume yes to all questions", action="store_true")
@@ -43,13 +43,17 @@ def main(args=None):
 
     if args.action not in ['list','delete','noop']:
         parser.print_help()
+    if args.action == 'delete' and not yes_or_no('This will destory selected images on repository, are you sure?'):
+        print('bye bye')
+        exit(1)
+
 
     action = args.action
     repo_id = args.repo
     component_name = args.component
     filter_pattern = args.filter
+    exclude_pattern = args.filter_exclude
     binary_format = args.bin_format
-    component_path = args.path
     ask_confirmation = not args.yes
 
     search_api = nexuscli.SearchApi()
@@ -61,10 +65,6 @@ def main(args=None):
         search_args['repository'] = repo_id
     if component_name:
         search_args['name'] = component_name
-
-    if not yes_or_no('This will destory selected images on repository, are you sure?'):
-        print('bye bye')
-        exit(1)
 
     items = []
     try:
@@ -80,9 +80,18 @@ def main(args=None):
         exit(1)
 
 
+    if filter_pattern:
+        re_filter = re.compile(filter_pattern)
+    if exclude_pattern:
+        re_exclude = re.compile(exclude_pattern)
+
     asset_api = nexuscli.AssetsApi()
-    re_filter = re.compile(filter_pattern)
     for asset in items:
+
+        if exclude_pattern:
+            result_filter = re_exclude.search(asset.path)
+            if result_filter:
+                continue
 
         if filter_pattern:
             result_filter = re_filter.search(asset.path)
