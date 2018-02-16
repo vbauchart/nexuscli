@@ -48,17 +48,22 @@ def main(args=None):
     if component_name:
         search_args['name'] = component_name
 
+    items = []
     try:
+        while True:
             assets=search_api.search_assets(**search_args)
-    except ApiException as e:
-            print("Exception when calling get_components %s\n" % e)
-            exit(1)
+            items += assets.items
+            if assets.continuation_token is None:
+                break
+            search_args['continuation_token'] = assets.continuation_token
 
-    if assets.continuation_token:
-        raise Exception('list too long (continuationToken not implemented yet)')
+    except ApiException as e:
+        print("Exception when calling get_components %s\n" % e)
+        exit(1)
+
 
     asset_api = nexuscli.AssetsApi()
-    for asset in assets.items:
+    for asset in items:
 
         re_name_tag=re.compile('^v2/(.+)/manifests/(.+)$')
         result_sre=re_name_tag.match(asset.path)
