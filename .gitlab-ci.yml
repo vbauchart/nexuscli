@@ -19,5 +19,5 @@ build:
         - docker push nexus.sys.lab.ingenico.com:18449/nexus-cli
     tags:
         - dockerimage
-    onlyif:
+    when:
         - master
