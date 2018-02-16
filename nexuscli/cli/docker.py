@@ -10,7 +10,6 @@ import os
 import urllib3
 import argparse
 
-urllib3.disable_warnings()
 
 def main(args=None):
     parser = argparse.ArgumentParser()
@@ -18,16 +17,21 @@ def main(args=None):
     parser.add_argument("-c", "--component", help="Component name", action="store")
     parser.add_argument("-l", "--list-assets", help="list assets", action="store_true")
     parser.add_argument("-k", "--insecure", help="Allow connect on untrusted CA", action="store_true")
+    parser.add_argument("-v", "--verbose", help="Be verbose", action="store_true")
     parser.add_argument("-d", "--delete-pattern",
                 help="Delete assets with TAG matching pattern (regex)", action="store")
     parser.add_argument("-n", "--dry-run", help="Do nothing, just print",
             action="store_true")
     args = parser.parse_args()
 
-    nexuscli.configuration.verify_ssl = args.insecure
-    nexuscli.configuration.host = os.environ['REGISTRY_URL']
+    if args.insecure:
+        nexuscli.configuration.verify_ssl = False
+        urllib3.disable_warnings()
+
+    nexuscli.configuration.host = os.environ['REGISTRY_URL'] + '/service/siesta'
     nexuscli.configuration.username = os.environ['REGISTRY_USERNAME']
     nexuscli.configuration.password = os.environ['REGISTRY_PASSWORD']
+    nexuscli.configuration.debug = args.verbose
 
     print_list = args.list_assets
     dry_run = args.dry_run
@@ -52,7 +56,6 @@ def main(args=None):
 
     if assets.continuation_token:
         raise Exception('list too long (continuationToken not implemented yet)')
-    pprint(assets)
 
     asset_api = nexuscli.AssetsApi()
     for asset in assets.items:
