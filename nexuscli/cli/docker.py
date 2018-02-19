@@ -101,6 +101,7 @@ def main(args=None):
         if action == 'list':
             print(asset.path)
         elif action == 'delete':
+            print('DELETE %s'%asset.path)
             try:
                 asset_api.delete_asset(asset.id)
             except ApiException as e:
